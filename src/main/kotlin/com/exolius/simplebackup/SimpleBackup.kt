@@ -57,7 +57,7 @@ class SimpleBackup : JavaPlugin() {
         }
 
         // Plugin commands
-        getCommand("sbackup")?.executor = Commands(this)
+        getCommand("sbackup")?.setExecutor(Commands(this))
 
         // Shameless self promotion in the source code :D
         if (selfPromotion) {
@@ -70,7 +70,7 @@ class SimpleBackup : JavaPlugin() {
         if (ticks > 0) {
             val delay = startHour?.let { syncStart(it) } ?: ticks
             // Add the repeating task, set it to repeat the specified time
-            server.scheduler.runTaskTimerAsynchronously(this, {
+            server.scheduler.runTaskTimerAsynchronously(this, Runnable {
                 // When the task is run, start the map backup
                 if (backupEmpty || Bukkit.getServer().onlinePlayers.isNotEmpty() || loginListener.wasOnline) {
                     doBackup()
@@ -145,9 +145,9 @@ class SimpleBackup : JavaPlugin() {
         // Begin backup of worlds
         // Broadcast the backup initialization if enabled
         if (broadcast) {
-            server.scheduler.runTask(this) {
+            server.scheduler.runTask(this, Runnable {
                 server.broadcastMessage("${ChatColor.BLUE}$message $customMessage")
-            }
+            })
         }
 
         // Loop through all the specified worlds and save them
@@ -162,7 +162,7 @@ class SimpleBackup : JavaPlugin() {
                     } catch (e: Exception) {
                         logger.log(Level.WARNING, e.message, e)
                     }
-                    it.worldFolder
+                    it.worldFolder.normalize()
                 }
                 .toMutableList()
                 // additional folders, e.g. "plugins/"
@@ -189,9 +189,9 @@ class SimpleBackup : JavaPlugin() {
 
         // Broadcast the backup completion if enabled
         if (broadcast) {
-            server.scheduler.runTask(this) {
+            server.scheduler.runTask(this, Runnable {
                 server.broadcastMessage("${ChatColor.BLUE}$message $customMessageEnd")
-            }
+            })
         }
         backupFile?.let {
             loginListener.notifyBackupCreated()

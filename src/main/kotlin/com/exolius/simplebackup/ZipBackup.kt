@@ -22,7 +22,7 @@ class ZipBackup(backupFolder: String, fileNameDateFormat: String, logger: Logger
         ZipOutputStream(FileOutputStream(backupFile)).use { zip ->
             worldFolders.forEach {
                 logger.info("Backing up $it")
-                zipFiles(it.parentFile.toURI(), it, zip)
+                zipFiles(it.absoluteFile.parentFile.toURI(), it, zip)
             }
         }
         return backupFile.absolutePath

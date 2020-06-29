@@ -1,6 +1,7 @@
 name: SimpleBackup
 main: com.exolius.simplebackup.SimpleBackup
 version: '1.8'
+api-version: '1.16'
 
 commands:
    sbackup:
