@@ -47,7 +47,7 @@ class DeleteSchedule(
                     return DateModification(Calendar.DATE, 0)
                 }
 
-                Pattern.compile("(\\d+)([hdwmyHDWMY])").matcher(s)
+                return Pattern.compile("(\\d+)([hdwmyHDWMY])").matcher(s)
                         .takeIf { it.matches() }
                         ?.let { it.group(1) to it.group(2) }
                         ?.let { (countStr, unitStr) ->
@@ -64,7 +64,6 @@ class DeleteSchedule(
                         }
                         ?.takeIf { (count, unit) -> count != null && unit != null }
                         ?.let { (count, unit) -> DateModification(count!!, unit!!) }
-                return null
             }
         }
     }
