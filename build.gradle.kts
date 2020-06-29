@@ -4,6 +4,7 @@ import java.net.URI
 plugins {
     application
     kotlin("jvm") version "1.3.72"
+    kotlin("kapt") version "1.3.72"
     id("com.github.johnrengelman.shadow") version "6.0.0"
 }
 
@@ -31,7 +32,10 @@ repositories {
 }
 
 dependencies {
+    kapt("org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT")
+
     implementation(kotlin("stdlib-jdk8"))
+    compileOnly("org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT")
     implementation("org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT")
     implementation("commons-io:commons-io:2.6")
 }

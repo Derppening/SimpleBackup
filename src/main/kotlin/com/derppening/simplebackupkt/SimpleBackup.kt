@@ -3,7 +3,13 @@ package com.derppening.simplebackupkt
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.World
+import org.bukkit.permissions.PermissionDefault
 import org.bukkit.plugin.java.JavaPlugin
+import org.bukkit.plugin.java.annotation.command.Command
+import org.bukkit.plugin.java.annotation.permission.Permission
+import org.bukkit.plugin.java.annotation.permission.Permissions
+import org.bukkit.plugin.java.annotation.plugin.ApiVersion
+import org.bukkit.plugin.java.annotation.plugin.Plugin
 import java.io.File
 import java.io.IOException
 import java.text.ParseException
@@ -12,6 +18,11 @@ import java.util.*
 import java.util.logging.Level
 import kotlin.math.floor
 
+@Plugin(name = "SimpleBackupKt", version = "2.0")
+// TODO(Derppening): v1_16
+@ApiVersion(ApiVersion.Target.v1_15)
+@org.bukkit.plugin.java.annotation.command.Commands(Command(name = "sbackup", desc = "Run map backup", usage = "/sbackup"))
+@Permissions(Permission(name = "simplebackup.use", desc = "Run map backup", defaultValue = PermissionDefault.OP))
 class SimpleBackup : JavaPlugin() {
 
     private var interval: Double = 0.0
