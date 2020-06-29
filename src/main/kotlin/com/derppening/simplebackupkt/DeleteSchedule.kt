@@ -63,7 +63,7 @@ class DeleteSchedule(
                             countStr.toIntOrNull() to unit
                         }
                         ?.takeIf { (count, unit) -> count != null && unit != null }
-                        ?.let { (count, unit) -> DateModification(count!!, unit!!) }
+                        ?.let { (count, unit) -> DateModification(unit!!, count!!) }
             }
         }
     }
