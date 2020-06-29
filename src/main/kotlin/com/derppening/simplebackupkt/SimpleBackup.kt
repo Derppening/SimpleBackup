@@ -1,4 +1,4 @@
-package com.exolius.simplebackup
+package com.derppening.simplebackupkt
 
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
@@ -61,7 +61,7 @@ class SimpleBackup : JavaPlugin() {
 
         // Shameless self promotion in the source code :D
         if (selfPromotion) {
-            logger.info("Developed by Exolius")
+            logger.info("Developed by Derppening, Based on SimpleBackup developed by Exolius")
         }
 
         // Set the backup interval, 72000.0D is 1 hour, multiplying it by the value interval will change the backup cycle time

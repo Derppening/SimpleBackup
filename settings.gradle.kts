@@ -1,2 +1,2 @@
-rootProject.name = "SimpleBackup"
+rootProject.name = "SimpleBackupKt"
 

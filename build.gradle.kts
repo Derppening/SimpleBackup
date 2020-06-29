@@ -7,9 +7,9 @@ plugins {
     id("com.github.johnrengelman.shadow") version "6.0.0"
 }
 
-group = "com.exolius.simplebackup"
-version = "1.8"
-application.mainClassName = "com.exolius.simplebackup.SimpleBackup"
+group = "com.derppening.simplebackupkt"
+version = "2.0"
+application.mainClassName = "com.derppening.simplebackupkt.SimpleBackup"
 
 /*
 https://www.spigotmc.org/wiki/spigot-plugin-development/

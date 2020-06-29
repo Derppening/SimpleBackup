@@ -1,6 +1,6 @@
-name: SimpleBackup
-main: com.exolius.simplebackup.SimpleBackup
-version: '1.8'
+name: SimpleBackupKt
+main: com.derppening.simplebackupkt.SimpleBackup
+version: '2.0'
 api-version: '1.16'
 
 commands:

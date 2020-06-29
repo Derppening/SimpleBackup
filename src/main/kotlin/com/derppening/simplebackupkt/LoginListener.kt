@@ -1,4 +1,4 @@
-package com.exolius.simplebackup
+package com.derppening.simplebackupkt
 
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority

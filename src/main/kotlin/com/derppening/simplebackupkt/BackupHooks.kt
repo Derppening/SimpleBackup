@@ -1,4 +1,4 @@
-package com.exolius.simplebackup
+package com.derppening.simplebackupkt
 
 class BackupHooks {
 

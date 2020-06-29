@@ -1,4 +1,4 @@
-package com.exolius.simplebackup
+package com.derppening.simplebackupkt
 
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
