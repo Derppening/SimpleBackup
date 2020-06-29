@@ -1,6 +1,6 @@
 name: SimpleBackup
 main: com.exolius.simplebackup.SimpleBackup
-version: ${project.version}
+version: '1.8'
 
 commands:
    sbackup:
