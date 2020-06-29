@@ -44,7 +44,7 @@ class ZipBackup(backupFolder: String, fileNameDateFormat: String, logger: Logger
             val entry = ZipEntry(root.relativize(source.toURI()).path)
             zip.putNextEntry(entry)
             try {
-                FileInputStream(source).buffered(4096).use {
+                FileInputStream(source).buffered().use {
                     it.copyTo(zip)
                 }
             } catch (e: IOException) {
