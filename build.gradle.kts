@@ -3,14 +3,18 @@ import java.net.URI
 
 plugins {
     application
-    kotlin("jvm") version "1.3.72"
-    kotlin("kapt") version "1.3.72"
-    id("com.github.johnrengelman.shadow") version "6.0.0"
+    kotlin("jvm") version "1.4.20"
+    kotlin("kapt") version "1.4.20"
+    id("com.github.johnrengelman.shadow") version "6.1.0"
 }
 
 group = "com.derppening.simplebackupkt"
 version = "2.0"
-application.mainClassName = "com.derppening.simplebackupkt.SimpleBackup"
+
+application {
+    mainClassName = "com.derppening.simplebackupkt.SimpleBackup"
+    mainClass.set(mainClassName)
+}
 
 /*
 https://www.spigotmc.org/wiki/spigot-plugin-development/
@@ -36,8 +40,8 @@ dependencies {
 
     implementation(kotlin("stdlib-jdk8"))
     compileOnly("org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT")
-    implementation("org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT")
-    implementation("commons-io:commons-io:2.6")
+    implementation("org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT")
+    implementation("commons-io:commons-io:2.8.0")
 }
 
 tasks {
@@ -53,7 +57,7 @@ tasks {
         }
     }
     wrapper {
-        gradleVersion = "6.5"
+        gradleVersion = "6.7.1"
         distributionType = Wrapper.DistributionType.ALL
     }
 }
