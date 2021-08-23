@@ -3,17 +3,16 @@ import java.net.URI
 
 plugins {
     application
-    kotlin("jvm") version "1.4.20"
-    kotlin("kapt") version "1.4.20"
-    id("com.github.johnrengelman.shadow") version "6.1.0"
+    kotlin("jvm") version "1.5.21"
+    kotlin("kapt") version "1.5.21"
+    id("com.github.johnrengelman.shadow") version "7.0.0"
 }
 
 group = "com.derppening.simplebackupkt"
 version = "2.0"
 
 application {
-    mainClassName = "com.derppening.simplebackupkt.SimpleBackup"
-    mainClass.set(mainClassName)
+    mainClass.set("com.derppening.simplebackupkt.SimpleBackup")
 }
 
 /*
@@ -40,8 +39,8 @@ dependencies {
 
     implementation(kotlin("stdlib-jdk8"))
     compileOnly("org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT")
-    implementation("org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT")
-    implementation("commons-io:commons-io:2.8.0")
+    implementation("org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT")
+    implementation("commons-io:commons-io:2.11.0")
 }
 
 tasks {
@@ -52,12 +51,12 @@ tasks {
     shadowJar {
         manifest {
             attributes.apply {
-                this["Main-Class"] = application.mainClassName
+                this["Main-Class"] = application.mainClass.get()
             }
         }
     }
     wrapper {
-        gradleVersion = "6.7.1"
-        distributionType = Wrapper.DistributionType.ALL
+        gradleVersion = "7.2"
+        distributionType = Wrapper.DistributionType.BIN
     }
 }

@@ -51,7 +51,7 @@ class DeleteSchedule(
                         .takeIf { it.matches() }
                         ?.let { it.group(1) to it.group(2) }
                         ?.let { (countStr, unitStr) ->
-                            val unit = when (unitStr.toLowerCase()) {
+                            val unit = when (unitStr.lowercase()) {
                                 "h" -> Calendar.HOUR
                                 "d" -> Calendar.DATE
                                 "w" -> Calendar.WEEK_OF_YEAR

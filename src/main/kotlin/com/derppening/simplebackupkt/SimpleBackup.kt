@@ -19,8 +19,7 @@ import java.util.logging.Level
 import kotlin.math.floor
 
 @Plugin(name = "SimpleBackupKt", version = "2.0")
-// TODO(Derppening): v1_16
-@ApiVersion(ApiVersion.Target.v1_15)
+@ApiVersion(ApiVersion.Target.v1_17)
 @org.bukkit.plugin.java.annotation.command.Commands(Command(name = "sbackup", desc = "Run map backup", usage = "/sbackup"))
 @Permissions(Permission(name = "simplebackup.use", desc = "Run map backup", defaultValue = PermissionDefault.OP))
 class SimpleBackup : JavaPlugin() {
