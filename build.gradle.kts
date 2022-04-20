@@ -3,9 +3,9 @@ import java.net.URI
 
 plugins {
     application
-    kotlin("jvm") version "1.5.21"
-    kotlin("kapt") version "1.5.21"
-    id("com.github.johnrengelman.shadow") version "7.0.0"
+    kotlin("jvm") version "1.6.20"
+    kotlin("kapt") version "1.6.20"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "com.derppening.simplebackupkt"
@@ -39,7 +39,7 @@ dependencies {
 
     implementation(kotlin("stdlib-jdk8"))
     compileOnly("org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT")
-    implementation("org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT")
+    implementation("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
     implementation("commons-io:commons-io:2.11.0")
 }
 
@@ -56,7 +56,7 @@ tasks {
         }
     }
     wrapper {
-        gradleVersion = "7.2"
+        gradleVersion = "7.4.2"
         distributionType = Wrapper.DistributionType.BIN
     }
 }
