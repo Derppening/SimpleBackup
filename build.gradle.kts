@@ -3,9 +3,9 @@ import java.net.URI
 
 plugins {
     application
-    kotlin("jvm") version "1.6.20"
-    kotlin("kapt") version "1.6.20"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    kotlin("jvm") version "1.9.22"
+    kotlin("kapt") version "1.9.22"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "com.derppening.simplebackupkt"
@@ -37,17 +37,16 @@ repositories {
 dependencies {
     kapt("org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT")
 
-    implementation(kotlin("stdlib-jdk8"))
     compileOnly("org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT")
-    implementation("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
-    implementation("commons-io:commons-io:2.11.0")
+    implementation("org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT")
+    implementation("commons-io:commons-io:2.15.1")
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 tasks {
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
-
     shadowJar {
         manifest {
             attributes.apply {
@@ -56,7 +55,6 @@ tasks {
         }
     }
     wrapper {
-        gradleVersion = "7.4.2"
-        distributionType = Wrapper.DistributionType.BIN
+        gradleVersion = "8.6"
     }
 }
