@@ -45,7 +45,7 @@ class SimpleBackup : JavaPlugin() {
     private lateinit var deleteSchedule: DeleteSchedule
 
     private val loginListener = LoginListener()
-    private val backupHooks = BackupHooks()
+    private val backupHooks = BackupHooks(logger)
 
     /**
      * This is ran when the plugin is disabled

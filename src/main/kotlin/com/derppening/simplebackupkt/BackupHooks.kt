@@ -1,13 +1,16 @@
 package com.derppening.simplebackupkt
 
-class BackupHooks {
+import java.util.logging.Logger
+
+class BackupHooks(private val logger: Logger) {
 
     fun notifyBackupCreated(command: String, filename: String) {
         if (command.isNotEmpty()) {
-            try {
+            runCatching {
                 val pb = ProcessBuilder(command, filename)
                 pb.start()
-            } catch (ex: Exception) {
+            }.onFailure { ex ->
+                logger.warning("Failed to execute backup hook `$command $filename`: $ex")
             }
         }
     }
