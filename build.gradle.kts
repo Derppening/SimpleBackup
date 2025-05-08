@@ -1,11 +1,10 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.net.URI
 
 plugins {
     application
-    kotlin("jvm") version "1.9.22"
-    kotlin("kapt") version "1.9.22"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    kotlin("jvm") version "2.1.20"
+    kotlin("kapt") version "2.1.20"
+    id("com.gradleup.shadow") version "8.3.6"
 }
 
 group = "com.derppening.simplebackupkt"
@@ -30,20 +29,18 @@ repositories {
             includeGroup("org.spigotmc")
         }
     }
-    maven { url = URI("https://oss.sonatype.org/content/repositories/snapshots") }
-    maven { url = URI("https://oss.sonatype.org/content/repositories/central") }
 }
 
 dependencies {
-    kapt("org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT")
+    kapt("org.spigotmc:plugin-annotations:1.3-SNAPSHOT")
 
-    compileOnly("org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT")
-    implementation("org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT")
-    implementation("commons-io:commons-io:2.15.1")
+    compileOnly("org.spigotmc:plugin-annotations:1.3-SNAPSHOT")
+    implementation("org.spigotmc:spigot-api:1.21.5-R0.1-SNAPSHOT")
+    implementation("commons-io:commons-io:2.19.0")
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 tasks {
@@ -55,6 +52,6 @@ tasks {
         }
     }
     wrapper {
-        gradleVersion = "8.6"
+        gradleVersion = "8.14"
     }
 }

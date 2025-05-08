@@ -11,6 +11,7 @@ class LoginListener : Listener {
         private set
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
+    @Suppress("UNUSED")
     fun onPlayerQuit(event: PlayerQuitEvent) {
         wasOnline = true
     }
