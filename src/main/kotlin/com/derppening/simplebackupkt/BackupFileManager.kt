@@ -21,12 +21,12 @@ abstract class BackupFileManager(
     protected fun formatDate(date: Date): String = fileNameDateFormat.format(date)
 
     override fun backupList(): SortedSet<Date> {
-        val files = backupFolder.listFiles() ?: return TreeSet()
+        val files = backupFolder.listFiles() ?: return sortedSetOf()
         val backups = files
                 .map { it to fileNameDateFormat.parse(it.name, ParsePosition(0)) }
                 .filter { (file, date) -> date != null && file.name == getFileName(date) }
                 .map { it.second }
-        return TreeSet<Date>().apply { addAll(backups) }
+        return backups.toSortedSet()
     }
 
     protected abstract fun getFileName(date: Date): String
